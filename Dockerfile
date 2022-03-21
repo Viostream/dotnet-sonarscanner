@@ -14,7 +14,7 @@ RUN \
     curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh \
     && chmod +x nodesource_setup.sh \
     && ./nodesource_setup.sh \
-    && apt-get install nodejs \
+    && apt-get install -y --no-install-recommends default-jre nodejs \
     && dotnet tool install dotnet-sonarscanner --tool-path . --version 5.5.3
 
 ADD entrypoint.sh /entrypoint.sh
