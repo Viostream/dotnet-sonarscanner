@@ -15,7 +15,6 @@ RUN \
     && chmod +x nodesource_setup.sh \
     && ./nodesource_setup.sh \
     && apt-get install nodejs \
-    && npm i -u npm \
     && dotnet tool install dotnet-sonarscanner --tool-path . --version 5.5.3
 
 ADD entrypoint.sh /entrypoint.sh
