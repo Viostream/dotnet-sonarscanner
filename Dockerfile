@@ -10,7 +10,13 @@ LABEL "homepage"="https://github.com/Secbyte/dotnet-sonarscanner"
 LABEL "maintainer"="Joshua Duffy <mail@joshuaduffy.org>"
 
 
-RUN dotnet tool install dotnet-sonarscanner --tool-path . --version 5.5.3
+RUN \
+    curl -sL https://deb.nodesource.com/setup_16.x -o nodesource_setup.sh \
+    && chmod +x nodesource_setup.sh \
+    && ./nodesource_setup.sh \
+    && apt-get install nodejs \
+    && npm i -u npm \
+    && dotnet tool install dotnet-sonarscanner --tool-path . --version 5.5.3
 
 ADD entrypoint.sh /entrypoint.sh
 
